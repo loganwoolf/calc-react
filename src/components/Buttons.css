@@ -1,0 +1,11 @@
+.input-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.25rem;
+}
+.tall {
+grid-row: span 2;
+}
+.wide {
+  grid-column: span 2;
+}
