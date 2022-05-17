@@ -1,0 +1,14 @@
+.screen {
+  border: 2px solid white;
+  /* height: 2.5rem; */
+  width: 25ch;
+  font-family: monospace;
+  color: white;
+  display: grid;
+  grid-auto-rows: 1.25fr 2fr;
+  padding: 0.1rem 0.25rem;
+}
+.primary-display {
+  text-align: right;
+  font-size: 1.5rem;
+}
