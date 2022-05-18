@@ -21,7 +21,7 @@ function App() {
     const input = e.target.textContent;
     const inputType = e.target.className;
 
-    if (input === "C") {
+    if (inputType.includes("clear")) {
       setDisplay({ primary: "0", secondary: "" });
       setOperands([]);
       setOperator(null);
@@ -45,7 +45,7 @@ function App() {
       if (display.primary.includes(".")) {
         return;
       }
-      setDisplay((prev) => {
+      return setDisplay((prev) => {
         const update = prev.primary + input;
         return { ...prev, primary: update };
       });
@@ -73,7 +73,7 @@ function App() {
 
     if (inputType.includes("equals")) {
       if (operands.length === 1) {
-        setOperands((prev) => {
+        return setOperands((prev) => {
           console.log(prev);
           const result = runCalc(...prev, display.primary);
           setOperator(null);
