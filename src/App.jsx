@@ -18,6 +18,19 @@ function App() {
       setOperator(null)      
       return;
     }
+
+    if (inputType.includes("number")) {
+      return setDisplay((prev) => {
+        if (prev.primary === "0") {
+          return { ...prev, primary: input };
+        }
+        if (prev.primary === "-0") {
+          return { ...prev, primary: `-${input}` };
+        }
+        const update = prev.primary + input;
+        return { ...prev, primary: update };
+      });
+    }
   };
 
   return (
