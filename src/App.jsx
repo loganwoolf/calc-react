@@ -8,14 +8,49 @@ function App() {
   const [operands, setOperands] = useState([]);
   const [operator, setOperator] = useState(null);
 
+  const PRECISION = 15;
+  const DISPLAYLENGTH = 12;
+
   const operate = {
-    "+": (a, b) => (+a + +b).toString(),
-    "-": (a, b) => (+a - +b).toString(),
-    "*": (a, b) => (+a * +b).toString(),
-    "/": (a, b) => (+a / +b).toString(),
+    "+": (a, b) => {
+      const factor = Math.pow(10, PRECISION);
+      return (
+        ((+a).toFixed(PRECISION) * factor + (+b).toFixed(PRECISION) * factor) /
+        factor
+      );
+    },
+    "-": (a, b) => {
+      const factor = Math.pow(10, PRECISION);
+      return (
+        ((+a).toFixed(PRECISION) * factor - (+b).toFixed(PRECISION) * factor) /
+        factor
+      );
+    },
+    "*": (a, b) => {
+      const factor = Math.pow(10, PRECISION);
+      return (
+        ((+a).toFixed(PRECISION) *
+          factor *
+          ((+b).toFixed(PRECISION) * factor)) /
+        factor /
+        factor
+      );
+    },
+    "/": (a, b) => {
+      const factor = Math.pow(10, PRECISION);
+      return (
+        (((+a).toFixed(PRECISION) * factor) /
+          ((+b).toFixed(PRECISION) * factor) /
+          factor) *
+        factor
+      );
+    },
   };
 
-  const runCalc = (a, b) => operate[operator](a, b);
+  const runCalc = (a, b) =>
+    operate[operator](a, b)
+      .toPrecision(DISPLAYLENGTH)
+      .replace(/\.?0+$/, "");
 
   const handleClick = (e) => {
     const input = e.target.textContent;
