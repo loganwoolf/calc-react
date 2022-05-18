@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Buttons from "./components/Buttons";
 import Screen from "./components/Screen";
-import calculate from "./lib/calculate"
+import calculate from "./lib/calculate";
 
 function App() {
   const [display, setDisplay] = useState({ primary: "0", secondary: "" });
@@ -21,6 +21,9 @@ function App() {
     const inputType = e.target.className;
 
     if (inputType.includes("clear")) {
+      if (display.primary !== "0") {
+        return setDisplay((prev) => ({ ...prev, primary: "0" }));
+      }
       setDisplay({ primary: "0", secondary: "" });
       setOperands([]);
       setOperator(null);
