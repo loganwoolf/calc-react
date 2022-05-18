@@ -8,6 +8,15 @@ function App() {
   const [operands, setOperands] = useState([]);
   const [operator, setOperator] = useState(null);
 
+  const operate = {
+    "+": (a, b) => (+a + +b).toString(),
+    "-": (a, b) => (+a - +b).toString(),
+    "*": (a, b) => (+a * +b).toString(),
+    "/": (a, b) => (+a / +b).toString(),
+  };
+
+  const runCalc = (a, b) => operate[operator](a, b);
+
   const handleClick = (e) => {
     const input = e.target.textContent;
     const inputType = e.target.className;
