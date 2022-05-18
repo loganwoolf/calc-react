@@ -31,6 +31,17 @@ function App() {
         return { ...prev, primary: update };
       });
     }
+
+    if (inputType.includes("negative")) {
+      return setDisplay((prev) => {
+        if (prev.primary.includes("-")) {
+          const update = prev.primary.slice(1);
+          return { ...prev, primary: update };
+        }
+        const update = `-${prev.primary}`;
+        return { ...prev, primary: update };
+      });
+    }
   };
 
   return (
