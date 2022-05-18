@@ -23,8 +23,8 @@ function App() {
 
     if (input === "C") {
       setDisplay({ primary: "0", secondary: "" });
-      setOperands([])
-      setOperator(null)      
+      setOperands([]);
+      setOperator(null);
       return;
     }
 
@@ -50,6 +50,27 @@ function App() {
         const update = `-${prev.primary}`;
         return { ...prev, primary: update };
       });
+    }
+
+    if (inputType.includes("operator")) {
+      if (operands.length === 0) {
+        setOperands([display.primary]);
+        setOperator(input);
+        setDisplay({ primary: "0", secondary: `${display.primary} ${input}` });
+        return;
+      }
+    }
+
+    if (inputType.includes("equals")) {
+      if (operands.length === 1) {
+        setOperands((prev) => {
+          console.log(prev);
+          const result = runCalc(...prev, display.primary);
+          setOperator(null);
+          setDisplay({ primary: result, secondary: "" });
+          return [];
+        });
+      }
     }
   };
 
