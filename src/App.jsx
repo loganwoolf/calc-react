@@ -41,6 +41,16 @@ function App() {
       });
     }
 
+    if (inputType.includes("decimal")) {
+      if (display.primary.includes(".")) {
+        return;
+      }
+      setDisplay((prev) => {
+        const update = prev.primary + input;
+        return { ...prev, primary: update };
+      });
+    }
+
     if (inputType.includes("negative")) {
       return setDisplay((prev) => {
         if (prev.primary.includes("-")) {
