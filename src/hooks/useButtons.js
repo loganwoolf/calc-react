@@ -59,14 +59,14 @@ export default function useButtons() {
   };
 
   const handleDecimal = () => {
-    if (display.primary.includes(".")) {
-      return;
-    }
     if (useNextInput) {
       return setDisplay((prev) => {
         setUseNextInput(false);
         return { ...prev, primary: "0." };
       });
+    }
+    if (display.primary.includes(".")) {
+      return;
     }
     return setDisplay((prev) => {
       const update = prev.primary + ".";
