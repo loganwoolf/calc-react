@@ -25,6 +25,20 @@ export default function useButtons() {
   };
 
   const handleNumber = (e) => {
+    // limit length of input strings
+    if (
+      display.primary.includes(".") &&
+      display.primary.length >= DISPLAYLENGTH + 2
+    ) {
+      return;
+    }
+    if (
+      !display.primary.includes(".") &&
+      display.primary.length >= DISPLAYLENGTH
+    ) {
+      return;
+    }
+
     const input = e.target.textContent;
     if (useNextInput) {
       return setDisplay((prev) => {
@@ -50,9 +64,9 @@ export default function useButtons() {
     }
     if (useNextInput) {
       return setDisplay((prev) => {
-        setUseNextInput(false)
-        return {...prev, primary: "0."}
-      })
+        setUseNextInput(false);
+        return { ...prev, primary: "0." };
+      });
     }
     return setDisplay((prev) => {
       const update = prev.primary + ".";
