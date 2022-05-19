@@ -48,6 +48,12 @@ export default function useButtons() {
     if (display.primary.includes(".")) {
       return;
     }
+    if (useNextInput) {
+      return setDisplay((prev) => {
+        setUseNextInput(false)
+        return {...prev, primary: "0."}
+      })
+    }
     return setDisplay((prev) => {
       const update = prev.primary + ".";
       return { ...prev, primary: update };
