@@ -66,6 +66,14 @@ export default function useButtons() {
       setDisplay({ primary: "0", secondary: `${display.primary} ${input}` });
       return;
     }
+    if (operands.length === 1) {
+      return setOperands((prev) => {
+        const result = runCalc(...prev, display.primary);
+        setOperator(input);
+        setDisplay({ primary: result, secondary: `${result} ${input}` });
+        return [result];
+      });
+    }
   };
 
   const handleEquals = () => {
