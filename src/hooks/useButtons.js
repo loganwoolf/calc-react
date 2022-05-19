@@ -5,6 +5,7 @@ export default function useButtons() {
   const [display, setDisplay] = useState({ primary: "0", secondary: "" });
   const [operands, setOperands] = useState([]);
   const [operator, setOperator] = useState(null);
+  const [useNextInput, setUseNextInput] = useState(false);
 
   const DISPLAYLENGTH = 12;
 
@@ -25,6 +26,12 @@ export default function useButtons() {
 
   const handleNumber = (e) => {
     const input = e.target.textContent;
+    if (useNextInput) {
+      return setDisplay((prev) => {
+        setUseNextInput(false);
+        return { ...prev, primary: input };
+      });
+    }
     return setDisplay((prev) => {
       if (prev.primary === "0") {
         return { ...prev, primary: input };
@@ -40,6 +47,12 @@ export default function useButtons() {
   const handleDecimal = () => {
     if (display.primary.includes(".")) {
       return;
+    }
+    if (useNextInput) {
+      return setDisplay((prev) => {
+        setUseNextInput(false)
+        return {...prev, primary: "0."}
+      })
     }
     return setDisplay((prev) => {
       const update = prev.primary + ".";
@@ -66,6 +79,15 @@ export default function useButtons() {
       setDisplay({ primary: "0", secondary: `${display.primary} ${input}` });
       return;
     }
+    if (operands.length === 1) {
+      return setOperands((prev) => {
+        const result = runCalc(...prev, display.primary);
+        setOperator(input);
+        setDisplay({ primary: result, secondary: `${result} ${input}` });
+        setUseNextInput(true);
+        return [result];
+      });
+    }
   };
 
   const handleEquals = () => {
@@ -74,6 +96,7 @@ export default function useButtons() {
         const result = runCalc(...prev, display.primary);
         setOperator(null);
         setDisplay({ primary: result, secondary: "" });
+        setUseNextInput(true);
         return [];
       });
     }
