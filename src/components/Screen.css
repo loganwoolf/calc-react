@@ -1,14 +1,15 @@
 .screen {
-  border: 2px solid white;
-  /* height: 2.5rem; */
-  width: 25ch;
+  border: 2px solid black;
   font-family: monospace;
-  color: white;
+  background-color: var(--light);
+  color: black;
   display: grid;
-  grid-auto-rows: 1.25fr 2fr;
-  padding: 0.1rem 0.25rem;
+  grid-auto-rows: 1fr 1fr;
+  padding: 0.5rem 1rem;
+  text-align: right;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
 }
 .primary-display {
-  text-align: right;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }

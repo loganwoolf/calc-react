@@ -1,12 +1,16 @@
+:root {
+  /* CSS HSL */
+  --warn: hsla(358, 38%, 43%, 1);
+  --light: hsla(203, 76%, 82%, 1);
+  --dark: hsla(225, 11%, 32%, 1);
+  --primary: hsl(214, 37%, 44%, 1);
+  --secondary: hsla(189, 37%, 44%, 1);
+}
+
 body {
   margin: 0;
   height: 100vh;
-  background-color: hsl(230, 61%, 20%);
+  background-color: var(--primary);
   display: grid;
   place-items: center;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
