@@ -117,6 +117,12 @@ export default function useButtons() {
   };
 
   const handleClick = (e) => {
+    if (e.target.tagName === "svg") {
+      e.target = e.target.parentNode;
+    }
+    if (e.target.tagName === "path") {
+      e.target = e.target.parentNode.parentNode;
+    }
     const inputType = e.target.className;
 
     if (inputType.includes("clear")) {
