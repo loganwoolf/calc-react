@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <p>
-        Made in 🇨🇦 by <span>Logan Woolf</span>
+        Made in 🍁 by <span>Logan Woolf</span>
       </p>
     </footer>
   );
