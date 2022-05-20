@@ -3,6 +3,12 @@ import Buttons from "./components/Buttons";
 import Screen from "./components/Screen";
 import useButtons from "./hooks/useButtons";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+// import the next line into each file fontawesome is needed
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+library.add(fas);
+
 function App() {
   const { handleClick, display } = useButtons();
 
