@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/calc-react/static/css/main.c55572e6.css",
+    "main.js": "/calc-react/static/js/main.14cb329e.js",
+    "static/media/blob-scene-haikei.svg": "/calc-react/static/media/blob-scene-haikei.375bbdc1302eca630a78.svg",
+    "index.html": "/calc-react/index.html",
+    "main.c55572e6.css.map": "/calc-react/static/css/main.c55572e6.css.map",
+    "main.14cb329e.js.map": "/calc-react/static/js/main.14cb329e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c55572e6.css",
+    "static/js/main.14cb329e.js"
+  ]
+}
