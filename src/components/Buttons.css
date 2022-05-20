@@ -16,9 +16,6 @@ button {
   border: 2px solid black;
   transition: all 200ms ease-in-out;
 }
-.button-hover {
-  opacity: 0.9;
-}
 button > svg {
   font-size: 1.5rem;
 }
