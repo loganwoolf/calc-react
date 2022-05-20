@@ -2,8 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Buttons.css";
 
 export default function Buttons(props) {
+  const hoverEffect = (e) => {
+    if (e.target.tagName === "BUTTON") {
+      return e.target.classList.add("button-hover");
+    }
+  };
+
   return (
-    <div onClick={props.onClick} className="input-buttons">
+    <div
+      onMouseOver={hoverEffect}
+      onClick={props.onClick}
+      className="input-buttons"
+    >
       <button className="clear-button warn">
         {"C"}
         <FontAwesomeIcon icon="fa-solid fa-c" />
