@@ -9,8 +9,13 @@
 
 body {
   margin: 0;
-  height: 100vh;
   background-color: var(--primary);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+#root {
   display: grid;
   place-items: center;
 }

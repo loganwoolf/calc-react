@@ -1,0 +1,19 @@
+footer {
+  display: grid;
+  place-items: center;
+  font-family: monospace;
+  height: 3rem;
+  color: white;
+  background-color: black;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+footer span {
+  display: inline-block;
+  transition: all 200ms ease-in-out;
+}
+footer span:hover {
+  transform: rotate(-7deg) scale(1.1);
+}
